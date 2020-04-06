@@ -7,20 +7,20 @@
 <div class="row single-post">
     <div class="single-post-card view-update {{ object.pk }}">
         <div class="header">
-            <a href="{% url 'user_detail' wafer.author.id %}">
-                {% if object.author.profile_pic %}
-                    <img class="picture-circle--medium" src="/{{object.author.profile_pic.url}}">
+            <a href="{% url 'user_detail' wafer.owner.id %}">
+                {% if object.owner.profile_pic %}
+                    <img class="picture-circle--medium" src="/{{object.owner.profile_pic.url}}">
                 {% endif %}
-                {{ object.author.username }}
+                {{ object.owner.username }}
             </a>
         </div>
         <div class="image__wrapper">
             <img class="card__main-image" src="/{{object.image}}" width='1000', height='1000'>
         </div>
 
-        <div class="comments-portion">
+<!--         <div class="comments-portion">
 
-        </div>
+        </div> -->
     </div>
 </div>
 
