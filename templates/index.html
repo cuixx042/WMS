@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load custom_tags %}
+
+{% block content %}
+
+<div class="cards-listing">
+    {% for wafer in object_list %}
+        <div class="row">
+            <div class="card view-update {{ wafer.pk }}">
+                <div class="card__panel-head">
+                    <div class="poster__info">
+                        <a href="{% url 'user_detail' wafer.owner.id %}" class="poster__name">
+                            {% if wafer.owner.profile_pic %}
+                                <img class="poster__profilepic" src="/{{ wafer.author.profile_pic.url }}">
+                            {% endif %}
+                            {{ wafer.owner.username }}
+                        </a>
+                        <span class="poster__timestamp">
+                            {{ wafer.posted_on|timesince }}
+                        </span>
+                    </div>
+                </div>
+                <a href="{% url 'wafer_detail' wafer.pk %}">
+                    <img class="card__main-image" src="/{{ wafer.image }}">
+                </a>
+
+                <div class="card__panel-body">
+                
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

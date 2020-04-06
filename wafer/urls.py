@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.urls import path
 
-from .views import (HelloWorld)
+from .views import (HelloWorld, WafersView, WaferDetailView, WaferCreateView, 
+                    WaferUpdateView, WaferDeleteView, UserDetailView, EditProfile)
 
 urlpatterns = [
-	path('', HelloWorld.as_view(), name='helloworld'),
-	#path('', PostsView.as_view(), name='posts'),
+	path('helloworld', HelloWorld.as_view(), name='helloworld'),
+	path('', WafersView.as_view(), name='wafers'),
+	path('wafer/<int:pk>/', WaferDetailView.as_view(), name='wafer_detail'),
+	path('wafer/new/', WaferCreateView.as_view(), name='make_wafer'),
+    path('wafer/update/<int:pk>/', WaferUpdateView.as_view(), name='wafer_update'),
+    path('wafer/delete/<int:pk>/', WaferDeleteView.as_view(), name='wafer_delete'),
+    path('user/<int:pk>/', UserDetailView.as_view(), name='user_detail'),
+    path('edit_profile/<int:pk>/', EditProfile.as_view(), name='edit_profile'),
 ]

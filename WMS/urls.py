@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from wafer.views import Signup
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('wafer.urls')),
+    path('auth/', include('django.contrib.auth.urls')),
+    path('auth/signup', Signup.as_view(), name='signup'),
 ]

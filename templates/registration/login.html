@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load custom_tags %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+
+<!-- <a href="{% url 'signup' %}" class="btn btn-primary">signup</a> -->
+
+{% endblock content %}
